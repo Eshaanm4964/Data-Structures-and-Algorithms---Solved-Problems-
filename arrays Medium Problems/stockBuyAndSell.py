@@ -1,6 +1,6 @@
-def stock_buy_sell(price):
+def stock_buy_sell(prices):
     #arr = [7,1,5,3,6,4]
-    n = len(arr)
+    n = len(prices)
     min_price = float("-inf")
     max_profit = 0
     for price in prices:
