@@ -1,7 +1,7 @@
 # count digits:
 def countDigits(n):
-    cnt = 0
+    count = 0
     while n > 0:
-        cnt = cnt + 1
+        count = count + 1
         n = n // 10
-    return cnt
+    return count
