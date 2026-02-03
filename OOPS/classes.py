@@ -110,3 +110,16 @@ class person:
 
 p1 = person("Emily")
 p1.greet()
+
+#Q8) Create a calculator using OOPS Concepts
+
+class calculator:
+    def add(self,a,b):
+        return a+b
+    
+    def multiply(self,a,b):
+        return a*b
+    
+calc = calculator()
+print(calc.add(5,15))
+print(calc.multiply(5,4))
