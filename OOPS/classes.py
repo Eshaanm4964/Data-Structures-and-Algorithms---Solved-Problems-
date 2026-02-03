@@ -123,3 +123,70 @@ class calculator:
 calc = calculator()
 print(calc.add(5,15))
 print(calc.multiply(5,4))
+
+#Q9)How do we access the methods ?
+
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def get_info(self):
+    return f"{self.name} is {self.age} years old"
+
+p1 = Person("Tobias", 28)
+print(p1.get_info())
+
+
+#Q10)Create a playlist where we can add songs, delete songs and view songs
+
+class playlist:
+    def __init__(self,name):
+        self.name = name 
+        self.songs = []
+
+    def add_songs(self,song):
+        self.songs.append(song)
+        print(f"added{song}")
+
+    def delete_songs(self,song):
+        if song in self.songs:
+            self.songs.remove(song)
+            print(f"removed {song}")
+    
+    def show_songs(self):
+        print(f"playlist'{self.name}':")
+        for song in self.songs:
+            print(f"-{song}")
+
+my_playlist = playlist("Favorites")
+my_playlist.add_songs("Bohemian Rhapsody")
+my_playlist.add_songs("Stairway to Heaven")
+my_playlist.show_songs()
+
+#Q12)1️⃣ Book Library Create a class Library where you can:add books,remove books,view all books
+
+class library:
+    def __init__(self,name):
+        self.name = name
+        books = []
+
+    def add_book(self,book):
+        self.books.append(book)
+        print(f"Book added {book}")
+
+    def delete_book(self,book):
+        for book in self.books:
+            self.books.remove(book)
+            print(f"Book removed {book}")
+
+    def show_books(self):
+        print(f"Library'{self.name}':")
+        for book in self.books:
+            print(f"-{book}")
+
+    
+
+
+
+
