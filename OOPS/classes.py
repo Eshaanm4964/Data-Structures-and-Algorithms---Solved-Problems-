@@ -15,14 +15,19 @@ class person:
 person1 = person("Eshaan",20)
 print(person1.name,person1.age )
 
+#Q2)Create a class without __init__
 
+class person():
+    pass
 
+p1 = person()
+p1.name = "Eshaan"
+p1.age = "21"
 
+print(p1.name)
+print(p1.age)
 
-
-
-
-
+#Q3) Create a class named dog with the class attribute called as species.
 class dog:
     species ="canine"
 
