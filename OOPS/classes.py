@@ -185,6 +185,102 @@ class library:
         for book in self.books:
             print(f"-{book}")
 
+#Inheritance:This is the property of a class where once class can extract the property of the other class or in formal terms inherit the properties.
+#Parent class: The class from which the property is inherited is called as parent
+#Child class: The class which inherits the property from another class is called as child class
+
+class animal:
+    def eat(self):
+        print("dog is eating")
+
+    def drink(self):
+        print("dog is drinking")
+
+class Dog(animal):
+    def bark(self):
+        print("dog is barking")
+
+d1 = Dog()
+
+d1.eat()
+d1.drink()
+d1.bark()
+
+
+class Parent:
+    def __init__(self, name):
+        self.name = name
+
+class Child(Parent):
+    def __init__(self, name, age):
+        super().__init__(name)   
+        self.age = age
+
+#super() keyword is used to call the parents class methods from the child class.
+
+c = Child("Eshaan", 21)
+print(c.name)   
+
+
+
+class Vehicle:
+    def __init__(self,brand):
+        self.brand = brand
+
+    def start(self):
+        print("The vehicle is starting.")
+
+class Car(Vehicle):
+    def __init__(self,brand,model):
+        self.model = model
+        super().__init__(brand)
+
+    def details(self):
+        print(f"The car has started and is of the {self.brand} and {self.model}")
+
+c1 = Car("Toyota","Innova")
+c1.start()
+c1.details()
+print(c1.brand)
+print(c1.model)
+
+
+class person:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+
+    def introduce(self):
+        print(f"Name:{self.name} , Age:{self.age}")
+
+class teacher(person):
+    def __init__(self,name,age,subject):
+        super().__init__(name)
+        super().__init__(age) #super().__init__(name,age)
+        self.subject = subject
+
+    def teach(self):
+        print(f"Teaching {self.subject}")
+
+class student(person):
+    def __init__(self,name,age,grade):
+        super().__init__(name)
+        super().__init__(age)
+        self.grade = grade
+
+    def study(self):
+        print(f"studying in grade {self.grade}")
+
+t1 = teacher("Mr. Sharma", 40, "Maths")
+s1 = student("Eshaan", 21, "Final Year")
+
+t1.introduce()
+t1.teach()
+
+s1.introduce()
+s1.study()
+
+
     
 
 
