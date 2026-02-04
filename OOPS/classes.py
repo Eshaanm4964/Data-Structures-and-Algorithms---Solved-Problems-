@@ -372,6 +372,91 @@ message1.send("Hi User")
 message2 = SMSNotification()
 message2.send("Hi User. How was your experience ?")
 
+#Q)
+"""
+Abstraction Coding Question (Level-Up)
 
+Design a system for different file storage services.
+
+Requirements:
+
+Create an abstract class StorageService.
+
+Define two abstract methods:
+
+upload(file_name)
+
+download(file_name)
+
+Create two concrete classes:
+
+LocalStorage
+
+CloudStorage
+
+Each class should implement both methods in its own way.
+
+Write client code that:
+
+Uploads a file
+
+Downloads the same file
+
+Use polymorphism (i.e., store objects in a list of StorageService).
+
+Expected Output (example):
+Uploading report.pdf to local storage
+Downloading report.pdf from local storage
+Uploading report.pdf to cloud storage
+Downloading report.pdf from cloud storage
+
+Rules (gym-boss rules 💪):
+
+No class nesting
+
+Method names and parameters must match exactly
+
+Use ABC and @abstractmethod
+
+Client code should not depend on concrete class names
+"""
+
+from abc import ABC,abstractmethod
+
+class StorageService(ABC):
+    @abstractmethod
+    def upload(self,file_name):
+        pass
+
+    @abstractmethod
+    def download(self,file_name):
+        pass
+
+class LocalStorage(StorageService):
+    def upload(self,file_name):
+        print(f"Uploading {file_name} to local storage")
+
+    def downlaod(self,file_name):
+        print(f"downloading {file_name} from local storage")
+
+class CloudStorage(StorageService):
+    def upload(self,file_name):
+        print(f"Uploading {file_name} to cloud storage")
+
+    def download(self,file_name):
+        print(f"Downloading {file_name} from clound storage")
+
+
+s1 = CloudStorage()
+s1.download("Marks.csv")
+
+s2 = LocalStorage()
+s2.upload("Marks.csv")
+
+services = [LocalStorage(),CloudStorage()]
+
+for service in services:
+    service.upload("Marks.csv")
+    service.download("Marks.csv")
 
 
