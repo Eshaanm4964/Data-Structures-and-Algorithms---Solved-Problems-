@@ -281,7 +281,96 @@ s1.introduce()
 s1.study()
 
 
-    
+#Abstraction is the process in which we hide the working details of the algorithm.
+# It plays a crucial role in building scalable, mantainable and modular codes.
+#abstraction in its essence is about hiding the complexity and showing the most simplest interface possible.
+
+from abc import ABC, abstractmethod
+
+#In python we ise this library to import abstract classes and methods
+
+#In Python, the @abstractmethod decorator is a tool used in abstract base classes (ABCs) to define methods that must be implemented by subclasses
+
+# Example 
+
+from abc import ABC,abstractmethod
+
+class vehicle(ABC):
+    @abstractmethod
+    def move(self):
+        pass
+
+    class car(vehicle):
+        def move(self):
+            print("The car is moving")
+
+    class boat(vehicle):
+        def move(self):
+            print("The boat is moving")
+
+
+from abc import ABC, abstractmethod
+
+class payment(ABC):
+    @abstractmethod
+    def paymentmethods(self,amount):
+        pass
+
+class CreditCardPayment(payment):
+    def paymentmethods(self,amount):
+        print("The amount is paid through credit card")
+
+class UPIpayments(payment):
+    def paymentmethods(self,amount):
+        print("The amount is paid using UPI")
+
+
+payment1 = CreditCardPayment()
+payment1.paymentmethods(500)
+
+payment2 = UPIpayments()
+payment2.paymentmethods(300)
+
+
+#Q)
+"""
+Abstraction Coding Question
+
+Design a system for different notification services.
+
+Requirements:
+
+Create an abstract class Notification.
+
+Define an abstract method send(message).
+
+Create two subclasses:
+
+EmailNotification
+
+SMSNotification
+
+Each subclass should implement the send() method in its own way.
+"""
+from abc import ABC,abstractmethod
+class Notification(ABC):
+    @abstractmethod
+    def send(self,message):
+        pass
+
+class EmailNotification(Notification):
+    def send(self,message):
+        print(f"This is the notification sent through email: {message}")
+
+class SMSNotification(Notification):
+    def send(self,message):
+        print(f"This is the message sent through sms:{message}")
+
+message1 = EmailNotification()
+message1.send("Hi User")
+
+message2 = SMSNotification()
+message2.send("Hi User. How was your experience ?")
 
 
 
