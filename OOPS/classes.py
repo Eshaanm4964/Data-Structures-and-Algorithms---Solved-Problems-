@@ -452,11 +452,78 @@ s1.download("Marks.csv")
 
 s2 = LocalStorage()
 s2.upload("Marks.csv")
+#using polymorphism
+#It refers to the ability of an entity to perform different actions at different times based on the action to be performed is called as polymorphism
 
 services = [LocalStorage(),CloudStorage()]
 
 for service in services:
     service.upload("Marks.csv")
     service.download("Marks.csv")
+
+
+
+#Encapsulation
+
+#Encapsulation means hiding the internal details of the a class and only exposing what is needed.
+#It helps protecting the data from being change directly and keeps the code secured and organised.
+
+#Example:
+class Employee:
+    def __init__(self,name,salary):
+        self.name = name          #public attribute 
+        self.__salary = salary    #Private attribute
+
+emp = Employee("Eshaan",3000000)
+print(emp.name)
+print(emp.salary) #this will raise an error as a private attribute cannot be accessed from outside the class.
+
+#ACCESS SPECIFIERS
+
+"""
+Public 
+Private 
+Protected
+"""
+
+class Employee:
+    def __init__(self, name):
+        self.name = name   # public attribute
+
+    def display_name(self):   # public method
+        print(self.name)
+
+emp = Employee("John")
+emp.display_name()   # Accessible
+print(emp.name)      # Accessible
+
+
+class Employee:
+    def __init__(self, name, age):
+        self.name = name       # public
+        self._age = age        # protected
+
+class SubEmployee(Employee):
+    def show_age(self):
+        print("Age:", self._age)   # Accessible in subclass
+
+emp = SubEmployee("Ross", 30)
+print(emp.name)        # Public accessible
+emp.show_age()         # Protected accessed through subclass
+
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name          # public
+        self.__salary = salary    # private
+
+    def show_salary(self):
+        print("Salary:", self.__salary)
+
+emp = Employee("Robert", 60000)
+print(emp.name)          # Public accessible
+emp.show_salary()        # Accessing private correctly
+# print(emp.__salary)    # Error: Not accessible directly
+
+
 
 
