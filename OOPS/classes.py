@@ -661,3 +661,24 @@ class Car(Vehicle):
         print("Car started")
         super().start()
 
+
+#Q6)
+from abc import ABC, abstractmethod
+
+class logger(ABC):
+    @abstractmethod
+    def log(self,message):
+        pass
+
+class FileLogger:
+    def log(self,message):
+        print(f"This using FileLogger {message}")
+
+class ConsoleLogger:
+    def log(self,message):
+        print(f"This is using ConsoleLogger {message}")
+
+Loggers = [FileLogger(),ConsoleLogger()]
+
+for Logger in Loggers:
+    Logger.log("Hi")
